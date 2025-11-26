@@ -23,13 +23,11 @@
 - 📘 Actualmente aprendiendo: **DevOps básico + mejores prácticas Backend**
 - 🎯 Meta: Convertirme en Full Stack Senior Developer
 
----
-
 ## 🛠️ Tech Stack
 <p align="center">
   <img src="https://skillicons.dev/icons?i=flutter,dart,rails,ruby,php,laravel,html,css,js,java,py,cs,cpp,c,docker,git,github,linux,mysql,postgres,sqlite,visualstudio,vscode,nodejs,figma&perline=12"/>
 </p>
----
+
 
 ## 🤝 Connect With Me
 <p align="center">
