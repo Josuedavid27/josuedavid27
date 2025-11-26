@@ -6,7 +6,9 @@
 <h3 align="center">Software Developer | Flutter • Ruby on Rails • PHP • Web & App Developer</h3>
 
 <p align="center">
-  <img src="https://i.pinimg.com/originals/81/17/8b/81178b47a8598f0c81c4799f2cdd4057.gif" width="300" alt="coding">
+ 
+<!-- Imagen decorativa a la derecha -->
+<img align="center" alt="Coding" width="500" src="https://media.giphy.com/media/Ah3zHH7hvsSB2/giphy.gif">
 </p>
 
 ---
@@ -27,15 +29,6 @@
 <p align="center">
   <img src="https://skillicons.dev/icons?i=flutter,dart,rails,ruby,php,laravel,html,css,js,java,py,cs,cpp,c,docker,git,github,linux,mysql,postgres,sqlite,visualstudio,vscode,nodejs,figma&perline=12"/>
 </p>
-
----
-
-## 📊 GitHub Stats
-<p align="center">
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=YOUR_USERNAME&theme=radical" />
-</p>
-
-
 ---
 
 ## 🤝 Connect With Me
@@ -48,12 +41,5 @@
 
 ---
 
-## 👀 Profile Views
-<p align="center">
-  <img src="https://komarev.com/ghpvc/?username=YOUR_USERNAME&color=blueviolet&style=for-the-badge">
-</p>
+<img src="https://github.com/AnderMendoza/AnderMendoza/raw/main/assets/banner-footer.gif" width="100%">
 
----
-
-<!-- Line decorativa -->
-<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%">
