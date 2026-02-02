@@ -34,7 +34,7 @@
   <a href="https://www.linkedin.com/in/josué-david-torres-sanjuanelo-3917733a5/"><img src="https://skillicons.dev/icons?i=linkedin" width="45"/></a>
   <a href="https://www.instagram.com/josuetorres_22/"><img src="https://skillicons.dev/icons?i=instagram" width="45"/></a>
   <a href="mailto:email@gmail.com"><img src="https://skillicons.dev/icons?i=gmail" width="45"/></a>
-  <a href="https://wa.me/573016497860"><img src="https://user-images.githubusercontent.com/88904952/234982627-019fd336-6248-453c-9b05-97c13fd1d207.png" width="45"/></a>
+  <a href="https://wa.me/573016497860"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" width="45"/></a>
 </p>
 
 ---
