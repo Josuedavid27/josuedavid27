@@ -1,20 +1,241 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LyricNova</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🎤 LyricNova Karaoke - Pro Edition</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Righteous&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
-     <h1> LyricNova</h1>
-     <input type="text" id="artist" placeholder="Artista">
-     <input type="text" id="song" placeholder="Cancion">
-     <button onclick="buscarLetra()">Buscar</button>
-        <div id="loader" class="hidden"> Buscando letra...</div>
-     <pre id="resultado"></pre>
+  <!-- Canvas para visualizador de audio -->
+  <canvas id="visualizer"></canvas>
+  
+  <!-- Partículas de fondo -->
+  <div class="particles" id="particles"></div>
+
+  <!-- Contenedor principal -->
+  <div class="overlay">
+    <div class="card">
+      <!-- Header con título y controles -->
+      <div class="header">
+        <h1 class="title">
+          <span class="emoji-bounce">🎤</span> 
+          LyricNova 
+          <span class="pro-badge">PRO</span>
+        </h1>
+        
+        <!-- Controles superiores -->
+        <div class="top-controls">
+          <button class="icon-btn" id="themeToggle" title="Cambiar tema">
+            <span class="icon">🌙</span>
+          </button>
+          <button class="icon-btn" id="colorThemeBtn" title="Temas de color">
+            <span class="icon">🎨</span>
+          </button>
+          <button class="icon-btn" id="fullscreenBtn" title="Pantalla completa (F)">
+            <span class="icon">⛶</span>
+          </button>
+          <button class="icon-btn" id="settingsBtn" title="Configuración">
+            <span class="icon">⚙️</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Selector de canciones -->
+      <div class="song-selector">
+        <div class="upload-zone" id="uploadZone">
+          <input type="file" id="audioUpload" accept="audio/*" hidden>
+          <div class="upload-content">
+            <span class="upload-icon">📁</span>
+            <p>Arrastra tu canción aquí o haz clic para cargar</p>
+            <span class="upload-formats">MP3, WAV, OGG</span>
+          </div>
+        </div>
+        
+        <!-- Info de la canción -->
+        <div class="song-info" id="songInfo" style="display: none;">
+          <div class="song-title" id="songTitle">Sin título</div>
+          <div class="song-artist" id="songArtist">Artista desconocido</div>
+        </div>
+      </div>
+
+      <!-- Reproductor de audio -->
+      <div class="audio-player">
+        <audio id="audio" preload="metadata"></audio>
+        
+        <!-- Barra de progreso -->
+        <div class="progress-container">
+          <div class="time-display">
+            <span id="currentTime">0:00</span>
+            <span id="duration">0:00</span>
+          </div>
+          <div class="progress-bar" id="progressBar">
+            <div class="progress-fill" id="progressFill"></div>
+            <div class="progress-handle" id="progressHandle"></div>
+          </div>
+        </div>
+
+        <!-- Controles principales -->
+        <div class="controls">
+          <button class="control-btn" id="prevBtn" title="Anterior">⏮</button>
+          <button class="control-btn main-btn" id="playPauseBtn" title="Reproducir/Pausar (Espacio)">
+            <span class="play-icon">▶</span>
+          </button>
+          <button class="control-btn" id="nextBtn" title="Siguiente">⏭</button>
+          <button class="control-btn" id="loopBtn" title="Repetir">🔁</button>
+        </div>
+
+        <!-- Controles avanzados -->
+        <div class="advanced-controls">
+          <div class="control-group">
+            <label for="volumeSlider">
+              <span class="control-icon">🔊</span>
+              <span class="control-label">Volumen</span>
+            </label>
+            <input type="range" id="volumeSlider" min="0" max="100" value="80" class="slider">
+            <span class="value-display" id="volumeValue">80%</span>
+          </div>
+
+          <div class="control-group">
+            <label for="speedSlider">
+              <span class="control-icon">⚡</span>
+              <span class="control-label">Velocidad</span>
+            </label>
+            <input type="range" id="speedSlider" min="50" max="200" value="100" class="slider">
+            <span class="value-display" id="speedValue">1.0x</span>
+          </div>
+
+          <div class="control-group">
+            <label for="pitchSlider">
+              <span class="control-icon">🎵</span>
+              <span class="control-label">Tono</span>
+            </label>
+            <input type="range" id="pitchSlider" min="-12" max="12" value="0" class="slider">
+            <span class="value-display" id="pitchValue">0</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contenedor de letras -->
+      <div class="lyrics-container">
+        <div class="lyrics-scroll" id="lyricsScroll">
+          <div id="lyrics"></div>
+        </div>
+        
+        <!-- Botón de edición -->
+        <button class="edit-lyrics-btn" id="editLyricsBtn" title="Editar letras">
+          <span class="icon">✏️</span> Editar Letras
+        </button>
+      </div>
+
+      <!-- Atajos de teclado (info) -->
+      <div class="shortcuts-info">
+        <span>Atajos: Espacio=Play/Pausa | ←/→=Adelantar/Atrasar | ↑/↓=Volumen | F=Pantalla completa</span>
+      </div>
     </div>
-    <script src="app.js"></script>
+  </div>
+
+  <!-- Modal de temas de color -->
+  <div class="modal" id="colorModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>🎨 Temas de Color</h2>
+        <button class="close-btn" id="closeColorModal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="color-themes">
+          <div class="theme-option" data-theme="neon-pink">
+            <div class="theme-preview neon-pink-preview"></div>
+            <span>Neon Rosa</span>
+          </div>
+          <div class="theme-option" data-theme="electric-blue">
+            <div class="theme-preview electric-blue-preview"></div>
+            <span>Azul Eléctrico</span>
+          </div>
+          <div class="theme-option" data-theme="sunset">
+            <div class="theme-preview sunset-preview"></div>
+            <span>Atardecer</span>
+          </div>
+          <div class="theme-option" data-theme="emerald">
+            <div class="theme-preview emerald-preview"></div>
+            <span>Esmeralda</span>
+          </div>
+          <div class="theme-option" data-theme="royal">
+            <div class="theme-preview royal-preview"></div>
+            <span>Real</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal de configuración -->
+  <div class="modal" id="settingsModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>⚙️ Configuración</h2>
+        <button class="close-btn" id="closeSettingsModal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="settings-group">
+          <label class="setting-item">
+            <input type="checkbox" id="autoScrollCheck" checked>
+            <span>Scroll automático de letras</span>
+          </label>
+          <label class="setting-item">
+            <input type="checkbox" id="visualizerCheck" checked>
+            <span>Visualizador de audio</span>
+          </label>
+          <label class="setting-item">
+            <input type="checkbox" id="particlesCheck" checked>
+            <span>Partículas animadas</span>
+          </label>
+          <label class="setting-item">
+            <input type="checkbox" id="keyboardShortcuts" checked>
+            <span>Atajos de teclado</span>
+          </label>
+        </div>
+        
+        <div class="settings-group">
+          <h3>Tamaño de letra</h3>
+          <input type="range" id="fontSizeSlider" min="16" max="36" value="24" class="slider">
+          <span class="value-display" id="fontSizeValue">24px</span>
+        </div>
+
+        <button class="reset-btn" id="resetSettings">Restablecer configuración</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal de editor de letras -->
+  <div class="modal" id="lyricsEditorModal">
+    <div class="modal-content large">
+      <div class="modal-header">
+        <h2>✏️ Editor de Letras</h2>
+        <button class="close-btn" id="closeLyricsEditor">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="editor-instructions">
+          <p>📝 Formato: [tiempo_en_segundos] Texto de la línea</p>
+          <p>Ejemplo: [30] La conocí una mañana</p>
+        </div>
+        <textarea id="lyricsEditor" placeholder="[0] Primera línea
+[5] Segunda línea
+[10] Tercera línea..."></textarea>
+        <div class="editor-buttons">
+          <button class="btn-secondary" id="syncLyricsBtn">🎯 Sincronizar en vivo</button>
+          <button class="btn-primary" id="saveLyricsBtn">💾 Guardar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast notifications -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <script src="app.js"></script>
 </body>
 </html>
