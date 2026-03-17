@@ -19,8 +19,6 @@
 - 🧱 Trabajando en: **Flutter apps, Ruby on Rails backend, webs en PHP/Laravel**
 - 🐳 Uso **Docker** para desarrollar de forma profesional
 - 🛢 Manejo **SQL Server, MySQL y PostgreSQL**
-- 💬 Pregúntame sobre: *Flutter, Rails, PHP, SQL, Git, Docker, HTML, CSS y más*
-- 📘 Actualmente aprendiendo: **DevOps básico + mejores prácticas Backend**
 - 🎯 Meta: Convertirme en Full Stack Senior Developer
 
 ## 🛠️ Tech Stack
