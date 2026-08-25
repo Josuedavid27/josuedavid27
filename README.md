@@ -6,18 +6,6 @@
   <img width="100%" alt="Josue Torres - Software Developer" src="https://capsule-render.vercel.app/api?type=waving&color=0:0f0f0f,100:1a1a2e&height=160&section=header&text=Josue%20Torres&fontSize=50&fontColor=ffffff&fontAlignY=40&desc=Mobile%20%C2%B7%20Backend%20Developer%20%C2%B7%20Colombia&descAlignY=65&descSize=18&descColor=aaaaaa" />
 </div>
 
-<!-- Saludo Principal -->
-<h1 align="center">Hi 👋, I'm <strong>Josue Torres</strong></h1>
-<h3 align="center">Software Developer | Flutter • Ruby on Rails • PHP • Web & App Developer</h3>
-
-<p align="center">
- 
-<!-- Imagen decorativa a la derecha -->
-<img align="center" alt="Coding" width="500" src="https://media.giphy.com/media/Ah3zHH7hvsSB2/giphy.gif">
-</p>
-
----
-
 ## 🚀 About Me
 - 👨‍💻 **Software Developer – ADDS Student**
 - 🔥 Apasionado por crear apps móviles, webs modernas y sistemas empresariales
