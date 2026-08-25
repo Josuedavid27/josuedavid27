@@ -68,12 +68,6 @@ Based in **Colombia 🇨🇴 · GMT-5** — comfortable working with teams in US
 
 ---
 
-## 📊 GitHub Stats
-
-<div align="center">
-  <img height="160" alt="GitHub stats" src="https://github-readme-stats.vercel.app/api?username=josuedavid27&show_icons=true&theme=github_dark&hide_border=true&bg_color=0d1117&title_color=ffffff&icon_color=58a6ff&text_color=c9d1d9&include_all_commits=true&count_private=true" />
-  <img height="160" alt="Top languages" src="https://github-readme-stats.vercel.app/api/top-langs/?username=josuedavid27&layout=compact&theme=github_dark&hide_border=true&langs_count=8&bg_color=0d1117&title_color=ffffff&text_color=c9d1d9" />
-</div>
 
 <div align="center">
   <img alt="Streak" src="https://streak-stats.demolab.com?user=josuedavid27&theme=github-dark-blue&hide_border=true&background=0d1117&stroke=58a6ff&ring=58a6ff&fire=ff9f43&currStreakLabel=ffffff&sideLabels=c9d1d9" />
