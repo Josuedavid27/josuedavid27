@@ -1,4 +1,3 @@
-!-- Header Animado -->
 <img src="https://github.com/AnderMendoza/AnderMendoza/raw/main/assets/banner-header.gif" width="100%">
 
 <!-- Saludo Principal -->
